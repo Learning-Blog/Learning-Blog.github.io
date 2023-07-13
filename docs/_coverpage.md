@@ -1,7 +1,8 @@
 # Myblogs
 
-> 我要开始装逼了
+> 笔记小仓库
 
-[CSDN](https://blog.csdn.net/m0_37965018)
+### 记录学习的历程
 
-[滚动鼠标](#introduction)
+ [GitHub](https://github.com/Learning-Blog/Learning-Blog.github.io)
+ [Get Started](#整体目录结构)
