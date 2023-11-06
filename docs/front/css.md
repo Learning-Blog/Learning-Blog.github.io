@@ -1,21 +1,28 @@
 # 1 插入样式表
 ## 1.1 外部样式表
 当样式需要被应用到很多页面的时候，外部样式表将是理想的选择。使用外部样式表，你就可以通过更改一个文件来改变整个站点的外观。
-> <head> 
-> <link rel="stylesheet" type="text/css" href="mystyle.css"> 
-> </head>
+```> 
+<head> 
+  <link rel="stylesheet" type="text/css" href="mystyle.css"> 
+</head>
+```
 
 ## 1.2 内部样式表
-当单个文件需要特别样式时，就可以使用内部样式表。你可以在 head 部分通过 <style> 标签定义内部样式表。
-> <head>
->  <style type="text/css"> 
-> body {background-color: red} 
-> p {margin-left: 20px} </style>
->  </head> 
+当单个文件需要特别样式时，就可以使用内部样式表。你可以在 head 部分通过 <'style'> 标签定义内部样式表。
+```
+<head>
+ <style type="text/css"> 
+   body {background-color: red} 
+   p {margin-left: 20px} 
+ </style>
+</head> 
+ ```
 
 ## 1.3 内联样式
 当特殊的样式需要应用到个别元素时，就可以使用内联样式。使用内联样式的方法是在相关的标签中使用样式属性。样式属性可以包含任何 CSS 属性。以下实例显示出如何改变段落的颜色和左外边距。
-> <p style="color: red; margin-left: 20px"> This is a paragraph </p>
+```
+ <p style="color: red; margin-left: 20px"> This is a paragraph </p>
+```
 
 
 ---
@@ -25,29 +32,36 @@
 ### 2.1.1 CSS元素选择器
 最常见的 CSS 选择器是元素选择器。换句话说，文档的元素就是最基本的选择器。
 如果设置 HTML 的样式，选择器通常将是某个 HTML 元素，比如 p、h1、em、a，甚至可以是 html 本身：
-> h1 {color:blue;} 
-> h2 {color:silver;}
+```
+h1 {color:blue;} 
+h2 {color:silver;}
+```
 
 ### 2.1.2 CSS类选择器
 类选择器允许以一种独立于文档元素的方式来指定样式。
 该选择器可以单独使用，也可以与其他元素结合使用。
-> <h1 class="important"> This heading is very important. </h1>
-> .important {color:red;}
+```
+<h1 class="important"> This heading is very important. </h1>
+.important {color:red;}
+```
 
 ### 2.1.3 CSS ID选择器
 **ID 选择器前面有一个 # 号 - 也称为棋盘号或井号。**
-> #intro {font-weight:bold;}
+```
+ #intro {font-weight:bold;}
+ ```
 
 ⚠️请注意，类选择器和 ID 选择器可能是区分大小写的
 ⚠️不同于类选择器，ID 选择器不能结合使用，因为 ID 属性不允许有以空格分隔的词列表。
 ### 2.1.4 CSS属性选择器
 **属性选择器可以根据元素的属性及属性值来选择元素。**
 例如，为了将同时有 href 和 title 属性的 HTML 超链接的文本设置为红色，可以这样写：
-> a[href][title] {
-> color:red;
-> }
-> <a title="W3School Home" href="[http://w3school.com.cn">W3School</a>](http://w3school.com.cn">W3School</a>)
-
+```
+a[href][title] {
+color:red;
+}
+<a title="W3School Home" href="http://w3school.com.cn">W3School</a>
+```
 | 选择器 | 描述 | 例子 | 例子描述 |
 | --- | --- | --- | --- |
 | [[attribute]](https://www.w3school.com.cn/cssref/selector_attribute.asp) | 用于选取带有指定属性的元素。 | [target] | 选择带有 target 属性的所有元素。 |
@@ -60,8 +74,10 @@
 
 ### 2.1.5 CSS后代选择器
 **后代选择器（descendant selector）又称为包含选择器。后代选择器可以选择作为某元素后代的元素。**
-> h1 em {color:red;}
-> <h1>This is a <em>important</em> heading</h1>
+  ```
+   h1 em {color:red;}
+   <h1>This is a <em>important</em> heading</h1>
+  ```
 
 > 在后代选择器中，规则左边的选择器一端包括两个或多个用空格分隔的选择器。选择器之间的空格是一种结合符（combinator）。每个空格结合符可以解释为“... 在 ... 找到”、“... 作为 ... 的一部分”、“... 作为 ... 的后代”，但是要求必须从右向左读选择器。
 > 因此，h1 em 选择器可以解释为 “作为 h1 元素后代的任何 em 元素”。如果要从左向右读选择器，可以换成以下说法：“包含 em 的所有 h1 会把以下样式应用到该 em”。
@@ -72,13 +88,17 @@
 **与后代选择器相比，子元素选择器（Child selectors）只能选择作为某元素子元素的元素。**
 如果您不希望选择任意的后代元素，而是希望缩小范围，只选择某个元素的子元素，请使用子元素选择器（Child selector）。
 例如，如果您希望选择只作为 h1 元素子元素的 strong 元素，可以这样写：
-> h1 > strong {color:red;}
+```
+ h1 > strong {color:red;}
+```
 
 ### 2.1.7 CSS相邻兄弟选择器
 **相邻兄弟选择器（Adjacent sibling selector）可选择紧接在另一元素后的元素，且二者有相同父元素。**
 如果需要选择紧接在另一个元素后的元素，而且二者有相同的父元素，可以使用相邻兄弟选择器（Adjacent sibling selector）。
 例如，如果要增加紧接在 h1 元素后出现的段落的上边距，可以这样写：
-> h1 + p {margin-top:50px;}
+```
+ h1 + p {margin-top:50px;}
+ ```
 
 > 这个选择器读作：“选择紧接在 h1 元素后出现的段落，h1 和 p 元素拥有共同的父元素”。
 
@@ -96,7 +116,9 @@
 | [background-size](https://www.w3school.com.cn/cssref/pr_background-size.asp) | 规定背景图像的尺寸。 |
 
 ⚠️CSS background - 简写属性
-> body {   background: #ffffff url("tree.png") no-repeat right top; }
+```
+ body {   background: #ffffff url("tree.png") no-repeat right top; }
+ ```
 
 > 在使用简写属性时，属性值的顺序为：
 > - background-color
@@ -132,7 +154,9 @@
 
 ## 2.3 CSS外边距
 > 您可以将 margin 属性设置为 auto，以使元素在其容器中水平居中。
+> 
 > 然后，该元素将占据指定的宽度，并且剩余空间将在左右边界之间平均分配。
+> 
 > ⚠️外边距可以是负值，而且在很多情况下都要使用负值的外边距。
 
 | 属性 | 描述 |
@@ -145,9 +169,10 @@
 
 > ⚠️**外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。**
 > **合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。**
+> 
 > **注释：**只有普通文档流中块框的垂直外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并。
 
-![margin_collapsing_1.gif](https://cdn.nlark.com/yuque/0/2022/gif/33671836/1666287855993-9d963d4f-7490-4f48-9ea4-31d37ff00519.gif#averageHue=%23635f62&clientId=ufd798163-5fe7-4&from=ui&id=u97906518&originHeight=392&originWidth=579&originalType=binary&ratio=1&rotation=0&showTitle=false&size=33917&status=done&style=none&taskId=u56668725-0c65-41b4-bc6e-9f80de9231e&title=)
+![margin_collapsing_1.gif](../images/css/css1.png)
 ## 2.4 CSS内边距
 | 属性 | 描述 |
 | --- | --- |
@@ -208,7 +233,9 @@
 > - font-size/line-height
 > - font-family
 
-> p.b {   font: italic small-caps bold 12px/30px Georgia, serif; }
+```
+p.b {   font: italic small-caps bold 12px/30px Georgia, serif; }
+```
 
 ## 2.8 CSS链接
 四种链接状态分别是：
@@ -230,44 +257,52 @@
 | [list-style-type](https://www.w3school.com.cn/cssref/pr_list-style-type.asp) | 规定列表项标记的类型。 |
 
 ## 2.10 CSS表格属性
-| 属性 |  | 描述 |
-| --- | --- | --- |
-| [border](https://www.w3school.com.cn/cssref/pr_border.asp) |  | 简写属性。在一条声明中设置所有边框属性。 |
-| [border-collapse](https://www.w3school.com.cn/cssref/pr_border-collapse.asp) |  | 规定是否应折叠表格边框。 |
-|  | separate | 默认值。边框会被分开。不会忽略 border-spacing 和 empty-cells 属性。 |
+| 属性 |  | 描述                                                      |
+| --- | --- |---------------------------------------------------------|
+| [border](https://www.w3school.com.cn/cssref/pr_border.asp) |  | 简写属性。在一条声明中设置所有边框属性。                                    |
+| [border-collapse](https://www.w3school.com.cn/cssref/pr_border-collapse.asp) |  | 规定是否应折叠表格边框。                                            |
+|  | separate | 默认值。边框会被分开。不会忽略 border-spacing 和 empty-cells 属性。        |
 |  | collapse | 如果可能，边框会合并为一个单一的边框。会忽略 border-spacing 和 empty-cells 属性。 |
-|  | inherit | 规定应该从父元素继承 border-collapse 属性的值。 |
-| [border-spacing](https://www.w3school.com.cn/cssref/pr_border-spacing.asp) |  | 规定相邻单元格之间的边框的距离。 |
-| [caption-side](https://www.w3school.com.cn/cssref/pr_tab_caption-side.asp) |  | 规定表格标题的位置。 |
-|  | top | 默认值。把表格标题定位在表格之上。 |
-|  | bottom | 把表格标题定位在表格之下。 |
-|  | inherit | 规定应该从父元素继承 caption-side 属性的值。 |
-| [empty-cells](https://www.w3school.com.cn/cssref/pr_tab_empty-cells.asp) |  | 规定是否在表格中的空白单元格上显示边框和背景。 |
-|  | hide | 不在空单元格周围绘制边框。 |
-|  | show | 在空单元格周围绘制边框。默认。 |
-|  | inherit | 规定应该从父元素继承 empty-cells 属性的值。 |
-| [table-layout](https://www.w3school.com.cn/cssref/pr_tab_table-layout.asp) |  | 设置用于表格的布局算法。 |
-|  | automatic | 默认。列宽度由单元格内容设定。 |
-|  | fixed | 列宽由表格宽度和列宽度设定。 |
-|  | inherit | 规定应该从父元素继承 table-layout 属性的值。 |
-| text-align |  | 默认情况下，<th> 元素的内容居中对齐，而 <td> 元素的内容左对齐。 |
+|  | inherit | 规定应该从父元素继承 border-collapse 属性的值。                        |
+| [border-spacing](https://www.w3school.com.cn/cssref/pr_border-spacing.asp) |  | 规定相邻单元格之间的边框的距离。                                        |
+| [caption-side](https://www.w3school.com.cn/cssref/pr_tab_caption-side.asp) |  | 规定表格标题的位置。                                              |
+|  | top | 默认值。把表格标题定位在表格之上。                                       |
+|  | bottom | 把表格标题定位在表格之下。                                           |
+|  | inherit | 规定应该从父元素继承 caption-side 属性的值。                           |
+| [empty-cells](https://www.w3school.com.cn/cssref/pr_tab_empty-cells.asp) |  | 规定是否在表格中的空白单元格上显示边框和背景。                                 |
+|  | hide | 不在空单元格周围绘制边框。                                           |
+|  | show | 在空单元格周围绘制边框。默认。                                         |
+|  | inherit | 规定应该从父元素继承 empty-cells 属性的值。                            |
+| [table-layout](https://www.w3school.com.cn/cssref/pr_tab_table-layout.asp) |  | 设置用于表格的布局算法。                                            |
+|  | automatic | 默认。列宽度由单元格内容设定。                                         |
+|  | fixed | 列宽由表格宽度和列宽度设定。                                          |
+|  | inherit | 规定应该从父元素继承 table-layout 属性的值。                           |
+| text-align |  | 默认情况下，<th//> 元素的内容居中对齐，而 <td//> 元素的内容左对齐。               |
 
 > #### 可悬停表格
 > 在 <tr> 元素上使用 :hover 选择器，以突出显示鼠标悬停时的表格行：
-> > tr:hover {background-color: #f5f5f5;}
+ ```
+ tr:hover {background-color: #f5f5f5;}
+ ```
 
 > #### 条状表格
 > 为了实现斑马纹表格效果，请使用 nth-child() 选择器，并为所有偶数（或奇数）表行添加 background-color：
-> > tr:nth-child(even) {background-color: #f2f2f2;}
+
+```
+tr:nth-child(even) {background-color: #f2f2f2;}
+```
 
 > #### 响应式表格
 > 如果屏幕太小而无法显示全部内容，则响应式表格会显示水平滚动条：
-> 在 <table> 元素周围添加带有 overflow-x:auto 的容器元素（例如 <div>），以实现响应式效果：
-> > <div style="overflow-x:auto;"> 
-> <table> 
-> ... table content ... 
-> </table> 
-> </div>
+> 在 <table//> 元素周围添加带有 overflow-x:auto 的容器元素（例如 <div//>），以实现响应式效果：
+
+```
+<div style="overflow-x:auto;"> 
+  <table> 
+  ... table content ... 
+  </table> 
+</div>
+```
 
 
 # 3 CSS中级教程
@@ -275,33 +310,27 @@
 display 属性规定是否/如何显示元素。
 每个 HTML 元素都有一个默认的 display 值，具体取决于它的元素类型。大多数元素的默认 display 值为 block 或 inline。
 
-| #### 块级元素（block element）
- | #### 行内元素（inline element）
- |
-| --- | --- |
-| 块级元素总是从新行开始，并占据可用的全部宽度（尽可能向左和向右伸展）。 | 内联元素不从新行开始，仅占用所需的宽度。
- |
-| 
-- <div>
-- <h1> - <h6>
-- <p>
-- <form>
-- <header>
-- <footer>
-- <section>
- | 
-- <span>
-- <a>
-- <img>
- |
+**块级元素（block element）**: 块级元素总是从新行开始，并占据可用的全部宽度（尽可能向左和向右伸展）。
+
+* ● <div//>
+* ● <h1//> - <h6//>
+* ● <p//>
+* ● <form//>
+* ● <header//>
+* ● <footer//>
+* ● <section//>
+
+**行内元素（inline element）**: 内联元素不从新行开始，仅占用所需的宽度。
+* ● <span//>
+* ● <a//>
+* ● <img//>
 
 **CSS Display/Visibility 属性**
 
 | 属性 |  | 描述 | 说明 |
 | --- | --- | --- | --- |
 | [display](https://www.w3school.com.cn/cssref/pr_class_display.asp) |  | 指定应如何显示元素。 | 
-
- |
+|
 |  | none | 此元素不会被显示。 | 从文档中删除元素。它不会占据任何空间。 |
 |  | block | 此元素将显示为块级元素，此元素前后会带有换行符。 |  |
 |  | inline | 默认。此元素会被显示为内联元素，元素前后没有换行符。 |  |
